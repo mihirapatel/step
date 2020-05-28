@@ -9,18 +9,24 @@
 
 /* NavBar */
 ul.navbar{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 li {
-  float: right;
+    margin-right: 15px;
+    float: right;
 }
 
 li a {
-  padding: 8px;
+    padding: 8px;
+}
+
+/* All pages */
+.bold {
+    font-weight: bold;
 }
 
 /* Background */
@@ -264,11 +270,6 @@ favorites-text {
 }
 
 /* Design Page */
-.designpix {
-    padding-left: 3px;
-    padding-right: 3px;
-}
-
 .hoverbox,
 .hoverbox * {
 	box-sizing: border-box;
@@ -286,28 +287,59 @@ favorites-text {
 	max-width: 100%;
 }
 
-.hoverbox .hover-picture {
+.hoverbox .hover-picture-about {
 	display: block;
 }
-.hoverbox .overlay {
+
+.hoverbox .hover-picture-design {
+    margin-right: 5px; 
+    margin-left: 5px;
+	display: block;
+}
+
+.hoverbox .overlay-about {
 	opacity: 0;
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	width: 100%;
-	height: 100%;
+	width: 243px;
+	height: 200px;
 	background: #cccccc;
 	color: #414f57;
-	padding: 15px;
+    margin-left: 15px;
 	-moz-transition: all 0.4s ease-in-out 0s;
 	-webkit-transition: all 0.4s ease-in-out 0s;
 	-ms-transition: all 0.4s ease-in-out 0s;
 	transition: all 0.4s ease-in-out 0s;
 }
-.hoverbox:hover .overlay,
-.hoverbox.active .overlay {
+
+.hoverbox .overlay-design {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 500px;
+	height: 375px;
+	background: #cccccc;
+	color: #414f57;
+	margin-left: 5px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+.hoverbox:hover .overlay-about,
+.hoverbox.active .overlay-about {
+	opacity: .85;
+}
+
+.hoverbox:hover .overlay-design,
+.hoverbox.active .overlay-design {
 	opacity: .85;
 }
 .hoverbox .hover-text {
@@ -322,11 +354,6 @@ favorites-text {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
-
-
-
-
-
 
 /* Main */
 
@@ -351,31 +378,6 @@ favorites-text {
 		opacity: 0.95;
 		position: relative;
         bottom: 75px;
-		text-align: center;
-		width: 130em;
-        height: 70em;
-	}
-
-    #design-main {
-		-moz-transform-origin: 50% 50%;
-		-webkit-transform-origin: 50% 50%;
-		-ms-transform-origin: 50% 50%;
-		transform-origin: 50% 50%;
-		-moz-transform: rotateX(0deg);
-		-webkit-transform: rotateX(0deg);
-		-ms-transform: rotateX(0deg);
-		transform: rotateX(0deg);
-		-moz-transition: opacity 1s ease, -moz-transform 1s ease;
-		-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
-		transition: opacity 1s ease, transform 1s ease;
-		padding: 4.5em 3em 3em 3em ;
-		background: #ffffff;
-		border-radius: 4px;
-		cursor: default;
-		max-width: 100%;
-		opacity: 0.95;
-		position: relative;
 		text-align: center;
 		width: 130em;
         height: 70em;
