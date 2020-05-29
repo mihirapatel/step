@@ -22,7 +22,19 @@ function addRandomGreeting() {
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
+  //Print greeting on button click
+    fetch('/data').then(response => response.text()).then((greeting) => {
+        document.getElementById('greeting-container').innerText = greeting;
+    });
+
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+//   const greetingContainer = document.getElementById('greeting-container');
+//   greetingContainer.innerText = greeting;
+}
+
+// Prints Hello Mihira! on button click
+function sayHello() {
+    fetch('/data').then(response => response.text()).then((hello) => {
+        document.getElementById('hello-container').innerText = hello;
+    });
 }
