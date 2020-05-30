@@ -26,10 +26,6 @@ function addRandomGreeting() {
     fetch('/data').then(response => response.text()).then((greeting) => {
         document.getElementById('greeting-container').innerText = greeting;
     });
-
-  // Add it to the page.
-//   const greetingContainer = document.getElementById('greeting-container');
-//   greetingContainer.innerText = greeting;
 }
 
 // Prints Hello Mihira! on button click
@@ -37,4 +33,12 @@ function sayHello() {
     fetch('/data').then(response => response.text()).then((hello) => {
         document.getElementById('hello-container').innerText = hello;
     });
+}
+
+//Fetch JSON messages string from server
+function getMessages() {
+    fetch('/data').then(response => response.text()).then((messages) => {
+        document.getElementById('message-container').innerText = messages;
+    });
+    
 }
