@@ -15,7 +15,7 @@ ul.navbar{
     overflow: hidden;
 }
 
-li {
+li.navbar {
     margin-right: 15px;
     float: right;
 }
@@ -355,6 +355,14 @@ favorites-text {
 	transform: translate(-50%, -50%);
 }
 
+/* Comments */
+#comments {
+    list-style-type: none;
+    text-align: center;
+    position: absolute;
+    left: 936px;
+}
+
 /* Main */
 
 	#main {
@@ -379,8 +387,8 @@ favorites-text {
 		position: relative;
         bottom: 75px;
 		text-align: center;
-		width: 130em;
-        height: 70em;
+		width: 2080px;
+        height: 1120px;
 	}
 
 		#main .avatar {

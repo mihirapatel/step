@@ -12,33 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  //Print greeting on button click
-    fetch('/data').then(response => response.text()).then((greeting) => {
-        document.getElementById('greeting-container').innerText = greeting;
+//Shows comments left on page
+function getComments() {
+	fetch('/comments').then(response => response.json()).then((comment) => {
+        // Build the list of history entries.
+        const commentEl = document.getElementById('comments');
+        comment.forEach((line) => {
+            commentEl.appendChild(createListElement(line));
+        });
     });
+} 
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
 
-// Prints Hello Mihira! on button click
-function sayHello() {
-    fetch('/data').then(response => response.text()).then((hello) => {
-        document.getElementById('hello-container').innerText = hello;
-    });
-}
-
-//Fetch JSON messages string from server
-function getMessages() {
-    fetch('/data').then(response => response.text()).then((messages) => {
-        document.getElementById('message-container').innerText = messages;
-    });
-    
-}
