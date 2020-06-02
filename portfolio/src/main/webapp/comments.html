@@ -27,17 +27,26 @@
 				<header>
 					<h3 class="subtitle"><span class="bold">Comments</span></h4>
 				</header>
-
-                <h2>Leave a comment below! </h2>
                 
                 <!-- Comment box -->
                 <form action="/comments" method="POST">
-                    <textarea name="text-input"></textarea>
-                    <br/><br/>
+                    <h2>Leave a comment below! </h2>
+                    <input type="text" name="text-input">
+                    <br/>
       	            <input type="submit" />
-                </form>
 
-                <ul id="comments"></ul>
+                    <br/><br/>
+                    <!-- Choose number of comments to display -->
+                    <label for="quantity">Choose how many comments to display:</label>
+                    <select name="quantity" id="quantity" onchange="getComments()">
+                        <option value="5" >5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </form>
+                </br></br>
+
+                <ul id="comment-list"></ul>
                 
             </section>
 		</div>

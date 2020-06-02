@@ -15,14 +15,23 @@
 
 //Shows comments left on page
 function getComments() {
-	fetch('/comments').then(response => response.json()).then((comments) => {
+    var quantity = getQuantity();
+    
+    fetch('/comments?quantity='+ quantity).then(response => response.json()).then((comments) => {
         // Build the list of history entries.
-        const commentEl = document.getElementById('comments');
-        comments.forEach((comment) => {
-            commentEl.appendChild(createListElement(comment));
-        });
+        const commentElement = document.getElementById('comment-list');
+        commentElement.innerHTML = '';
+        for (var i=0; i < comments.length; i++) {
+            commentElement.appendChild(createListElement(comments[i]));
+        }
     });
-} 
+}
+
+function getQuantity() {
+    var quantity = document.getElementById("quantity");
+    var value = quantity.options[quantity.selectedIndex].value
+    return value
+}
 
 /** Creates an <li> element containing text. */
 function createListElement(comment) {
