@@ -15,19 +15,19 @@
 
 //Shows comments left on page
 function getComments() {
-	fetch('/comments').then(response => response.json()).then((comment) => {
+	fetch('/comments').then(response => response.json()).then((comments) => {
         // Build the list of history entries.
         const commentEl = document.getElementById('comments');
-        comment.forEach((line) => {
-            commentEl.appendChild(createListElement(line));
+        comments.forEach((comment) => {
+            commentEl.appendChild(createListElement(comment));
         });
     });
 } 
 
 /** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createListElement(comment) {
+  const commentElement = document.createElement('li');
+  commentElement.innerText = comment.userComment;
+  return commentElement;
 }
 
