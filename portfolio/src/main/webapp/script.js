@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 //Shows comments left on page
 function getComments() {
     var quantity = getQuantity();
