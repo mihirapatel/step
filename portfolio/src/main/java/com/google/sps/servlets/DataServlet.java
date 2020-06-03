@@ -39,16 +39,17 @@ public class DataServlet extends HttpServlet {
   // Create ArrayList
   private List<String> comments = new ArrayList<>();
 
+  private List<String> messages;
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
     // Get comment quantity
     int commentCount;
     String commentQuantity = request.getParameter("quantity");
  
     commentCount = Integer.parseInt(commentQuantity);
 
-	Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
+	  Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
@@ -71,7 +72,6 @@ public class DataServlet extends HttpServlet {
     response.setContentType("application/json;");
     Gson gson = new Gson();
     String json = gson.toJson(comments);
-    
     response.getWriter().println(json);
   }
 
