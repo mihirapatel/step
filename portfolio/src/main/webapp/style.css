@@ -228,7 +228,7 @@ img[class^=icon] {
 
 /* About Page */
 .paragraph-picture-block {
-    margin: 0px 50px 150px 50px;
+    margin: 0px 50px 120px 50px;
 }
 
 favorites-text {
@@ -257,8 +257,8 @@ favorites-text {
 
 #map {
   border: thin solid black;
-  height: 500px;
-  width: 1000px;
+  height: 800px;
+  width: 1400px;
   margin: auto;
 }
 

@@ -48,8 +48,49 @@ function deleteComments() {
 
 /** Creates a map and adds it to the page. */
 function createMap() {
+  var myLatlng = new google.maps.LatLng(37.788655, -122.449772);
+  var mapOptions = {
+    zoom: 13,
+    center: myLatlng,
+  };
   const map = new google.maps.Map(
       document.getElementById('map'),
-      {center: {lat: 37.7749, lng: -122.4194}, zoom: 16});
+      mapOptions);
+
+  const bobaGuys = new google.maps.Marker({
+    position: {lat: 37.772878, lng: -122.423458},
+    map: map,
+    title: 'Boba Guys'
+  });
+  
+  const pizzeriaDelfina = new google.maps.Marker({
+    position: {lat: 37.761450, lng: -122.424266},
+    map: map,
+    title: 'Pizzeria Delfina'
+  });
+
+  const doloresPark = new google.maps.Marker({
+    position: {lat: 37.760180, lng: -122.427123},
+    map: map,
+    title: 'Dolores Park'
+  });
+
+  const biriteCreamery = new google.maps.Marker({
+    position: {lat: 37.761802, lng: -122.425417},
+    map: map,
+    title: 'Bi-Rite Creamery'
+  });
+
+  const kirbyCoveBeach = new google.maps.Marker({
+    position: {lat: 37.827276, lng: -122.489582},
+    map: map,
+    title: 'Kirby Cove Beach'
+  });
+
+  const bakerBeach = new google.maps.Marker({
+    position: {lat: 37.793653, lng: -122.483663},
+    map: map,
+    title: 'Baker Beach'
+  });
 }
 
