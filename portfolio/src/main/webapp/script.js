@@ -15,7 +15,7 @@
 //Shows comments left on page
 function getComments() {
     var quantity = getQuantity();
-    
+
     fetch('/comments?quantity='+ quantity).then(response => response.json()).then((comments) => {
         // Build the list of history entries.
         const commentElement = document.getElementById('comment-list');
@@ -35,9 +35,9 @@ function getQuantity() {
 
 /** Creates an <li> element containing text. */
 function createListElement(comment) {
-  const commentElement = document.createElement('li');
-  commentElement.innerText = comment.userComment;
-  return commentElement;
+    const commentElement = document.createElement('li');
+    commentElement.innerText = comment.userComment;
+    return commentElement;
 }
 
 // Deletes all comments 
@@ -47,49 +47,78 @@ function deleteComments() {
 
 /** Creates a map and adds it to the page. */
 function createMap() {
-  var myLatlng = new google.maps.LatLng(37.788655, -122.449772);
-  var mapOptions = {
-    zoom: 13,
-    center: myLatlng,
-  };
-  const map = new google.maps.Map(
-      document.getElementById('map'),
-      mapOptions);
+    var myLatlng = new google.maps.LatLng(37.788655, -122.449772);
+    var mapOptions = {
+        zoom: 13,
+        center: myLatlng,
+    };
+    const map = new google.maps.Map(
+        document.getElementById('map'),
+        mapOptions);
 
-  const bobaGuys = new google.maps.Marker({
-    position: {lat: 37.772878, lng: -122.423458},
-    map: map,
-    title: 'Boba Guys'
-  });
-  
-  const pizzeriaDelfina = new google.maps.Marker({
+    // Boba Guys 
+    const bobaGuysInfoWindow =
+        new google.maps.InfoWindow({content: 'This is my favorite boba place.'});
+
+    const bobaGuysMarker = new google.maps.Marker({
+        position: {lat: 37.772878, lng: -122.423458},
+        map: map,
+        title: 'Boba Guys'
+    });
+    bobaGuysMarker.addListener('click', function() { bobaGuysInfoWindow.open(map, bobaGuysMarker);});
+
+    // Pizzeria Delfina
+    const pizzeriaDelfinaInfoWindow =
+        new google.maps.InfoWindow({content: 'This is my favorite pizza place.'});
+
+    const pizzeriaDelfinaMarker = new google.maps.Marker({
     position: {lat: 37.761450, lng: -122.424266},
     map: map,
     title: 'Pizzeria Delfina'
-  });
+    });
+    pizzeriaDelfinaMarker.addListener('click', function() { pizzeriaDelfinaInfoWindow.open(map, pizzeriaDelfinaMarker);});
 
-  const doloresPark = new google.maps.Marker({
+    // Dolores Park
+    const doloresParkInfoWindow =
+        new google.maps.InfoWindow({content: 'This is a great hang-out spot.'});
+
+    const doloresParkMarker = new google.maps.Marker({
     position: {lat: 37.760180, lng: -122.427123},
     map: map,
     title: 'Dolores Park'
-  });
+    });
+    doloresParkMarker.addListener('click', function() { doloresParkInfoWindow.open(map, doloresParkMarker);});
 
-  const biriteCreamery = new google.maps.Marker({
+    // Dolores Park
+    const biriteCreameryInfoWindow =
+        new google.maps.InfoWindow({content: 'This is a great ice cream shop.'});
+
+    const biriteCreameryMarker = new google.maps.Marker({
     position: {lat: 37.761802, lng: -122.425417},
     map: map,
     title: 'Bi-Rite Creamery'
-  });
+    });
+    biriteCreameryMarker.addListener('click', function() { biriteCreameryInfoWindow.open(map, biriteCreameryMarker);});
 
-  const kirbyCoveBeach = new google.maps.Marker({
+    // Kirby Cove Beach
+    const kirbyCoveBeachInfoWindow =
+        new google.maps.InfoWindow({content: 'This is a fun beach.'});
+    const kirbyCoveBeachMarker = new google.maps.Marker({
     position: {lat: 37.827276, lng: -122.489582},
     map: map,
     title: 'Kirby Cove Beach'
-  });
+    });
+    kirbyCoveBeachMarker.addListener('click', function() { kirbyCoveBeachInfoWindow.open(map, kirbyCoveBeachMarker);});
 
-  const bakerBeach = new google.maps.Marker({
+    //Baker Beach
+    const bakerBeachInfoWindow =
+        new google.maps.InfoWindow({content: 'This is a great beach with of view of the Golden Gate.'});
+    const bakerBeachMarker = new google.maps.Marker({
     position: {lat: 37.793653, lng: -122.483663},
     map: map,
     title: 'Baker Beach'
-  });
+    });
+    bakerBeachMarker.addListener('click', function() { bakerBeachInfoWindow.open(map, bakerBeachMarker);});
+
 }
 
