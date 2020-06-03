@@ -15,7 +15,7 @@ ul.navbar{
     overflow: hidden;
 }
 
-li {
+li.navbar {
     margin-right: 15px;
     float: right;
 }
@@ -228,7 +228,7 @@ img[class^=icon] {
 
 /* About Page */
 .paragraph-picture-block {
-    margin: 0px 50px 150px 50px;
+    margin: 0px 50px 120px 50px;
 }
 
 favorites-text {
@@ -253,6 +253,13 @@ favorites-text {
 .favorite-images img{
     margin-left: 15px;
     margin-right: 15px;
+}
+
+#map {
+  border: thin solid black;
+  height: 800px;
+  width: 1400px;
+  margin: auto;
 }
 
 /* About/Projects Page */
@@ -355,6 +362,22 @@ favorites-text {
 	transform: translate(-50%, -50%);
 }
 
+/* Comments */
+#comment-list {
+    list-style-type: none;
+    text-align: center;
+    position: absolute;
+    left: 960px;
+}
+
+.number-comments {
+    display: inline;
+}
+
+.delete-button {
+    margin-top: 600px;
+}
+
 /* Main */
 
 	#main {
@@ -379,8 +402,8 @@ favorites-text {
 		position: relative;
         bottom: 75px;
 		text-align: center;
-		width: 130em;
-        height: 70em;
+		width: 2080px;
+        height: 1120px;
 	}
 
 		#main .avatar {
