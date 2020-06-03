@@ -255,6 +255,13 @@ favorites-text {
     margin-right: 15px;
 }
 
+#map {
+  border: thin solid black;
+  height: 500px;
+  width: 1000px;
+  margin: auto;
+}
+
 /* About/Projects Page */
 .left-align-picture {
     float: left;
