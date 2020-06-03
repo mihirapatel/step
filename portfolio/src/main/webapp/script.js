@@ -27,6 +27,7 @@ function getComments() {
     });
 }
 
+// Gets amount of comments to display
 function getQuantity() {
     var quantity = document.getElementById("quantity");
     var value = quantity.options[quantity.selectedIndex].value
@@ -38,5 +39,10 @@ function createListElement(comment) {
   const commentElement = document.createElement('li');
   commentElement.innerText = comment.userComment;
   return commentElement;
+}
+
+// Deletes all comments 
+function deleteComments() {
+    fetch('/delete-data', {method: 'POST'}).then(getComments)
 }
 

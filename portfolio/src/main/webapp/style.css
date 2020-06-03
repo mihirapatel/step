@@ -360,11 +360,15 @@ favorites-text {
     list-style-type: none;
     text-align: center;
     position: absolute;
-    left: 936px;
+    left: 960px;
 }
 
 .number-comments {
     display: inline;
+}
+
+.delete-button {
+    margin-top: 600px;
 }
 
 /* Main */
