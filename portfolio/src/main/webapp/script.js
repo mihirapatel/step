@@ -29,9 +29,14 @@ function getComments() {
 // Gets amount of comments to display
 function getQuantity() {
     var quantity = document.getElementById("quantity");
-    var value = quantity.options[quantity.selectedIndex].value
-    return value
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("quantity", quantity);
+    } else {
+        quantity = sessionStorage.getItem("quantity")
+    }
+    return quantity.options[quantity.selectedIndex].value
 }
+
 
 /** Creates an <li> element containing text. */
 function createListElement(comment) {
@@ -119,6 +124,51 @@ function createMap() {
     title: 'Baker Beach'
     });
     bakerBeachMarker.addListener('click', function() { bakerBeachInfoWindow.open(map, bakerBeachMarker);});
+}
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+    // Computer Sciences
+    const computerScienceData = new google.visualization.DataTable();
+    computerScienceData.addColumn('string', 'Gender');
+    computerScienceData.addColumn('number', 'Percentage');
+            computerScienceData.addRows([
+            ['Female', 19],
+            ['Male', 81],
+
+            ]);
+
+    const computerScienceOptions = {
+        'title': 'Female vs. Male Students in Computer Science Courses',
+        'width':500,
+        'height':400
+    };
+
+    const computerScienceChart = new google.visualization.PieChart(
+        document.getElementById('computer-chart-container'));
+    computerScienceChart.draw(computerScienceData, computerScienceOptions);
+
+    // Engineering and Technology 
+    const engineeringData = new google.visualization.DataTable();
+    engineeringData.addColumn('string', 'Gender');
+    engineeringData.addColumn('number', 'Percentage');
+            engineeringData.addRows([
+            ['Female', 19],
+            ['Male', 81],
+
+            ]);
+
+    const engineeringOptions = {
+        'title': 'Female vs. Male Students in Engineering and Technology Courses',
+        'width':500,
+        'height':400
+    };
+
+    const engineeringChart = new google.visualization.PieChart(
+        document.getElementById('engineering-chart-container'));
+    engineeringChart.draw(engineeringData, engineeringOptions);
 }
 
