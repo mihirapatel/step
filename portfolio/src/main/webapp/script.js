@@ -18,7 +18,7 @@ function getComments() {
 
     fetch('/comments?quantity='+ quantity).then(response => response.json()).then((comments) => {
         // Build the list of history entries.
-        const commentElement = document.getElementById('comment-list');
+        const commentElement = document.getElementById('comment-table');
         commentElement.innerHTML = '';
 
         //Create table headings

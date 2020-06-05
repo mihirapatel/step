@@ -363,13 +363,6 @@ favorites-text {
 }
 
 /* Comments */
-#comment-list {
-    list-style-type: none;
-    text-align: center;
-    position: absolute;
-    left: 550px;
-}
-
 .name-textbox {
     margin-left: 25px;
     margin-bottom: 10px;
@@ -380,16 +373,21 @@ favorites-text {
 }
 
 .delete-button {
-    margin-top: 585px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 605px;
+    padding: 2px;
     position: fixed;
 }
 
 table {
     font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
     border-collapse: collapse;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    position: absolute;
+    left: 550px;
 }
 
 td, th {
