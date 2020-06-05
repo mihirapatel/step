@@ -367,7 +367,7 @@ favorites-text {
     list-style-type: none;
     text-align: center;
     position: absolute;
-    left: 960px;
+    left: 550px;
 }
 
 .name-textbox {
@@ -381,22 +381,21 @@ favorites-text {
 
 .delete-button {
     margin-top: 585px;
+    position: fixed;
 }
 
 table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 3px;
 }
 
 /* Charts */
