@@ -40,10 +40,18 @@ function getQuantity() {
 
 /** Creates an <li> element containing text. */
 function createListElement(comment) {
+    // const nameElement = document.createElement('li');
     const commentElement = document.createElement('li');
-    commentElement.innerText = comment.userComment;
+    commentElement.innerText = comment.userName + ": " + comment.userComment;
     return commentElement;
 }
+
+/** Creates an <td> element containing text. */
+// function createListElement(comment) {
+//     const commentElement = document.createElement('td');
+//     commentElement.innerText = comment.userComment;
+//     return commentElement;
+// }
 
 // Deletes all comments 
 function deleteComments() {

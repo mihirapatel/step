@@ -31,11 +31,18 @@
                 <!-- Comment box -->
                 <form action="/comments" method="POST">
                     <h2>Leave a comment below! </h2>
-                    <input type="text" name="text-input">
-                    <br/>
+                    <div class="name-textbox">
+                        <label for="userName">Name: </label>
+                        <input type="text" id="name-input" name="name-input">
+                    </div>
+                    <div class="comment-textbox">
+                        <label for="text-input">Comment: </label>
+                        <input type="text" id="text-input" name="text-input">
+                    </div>
+                    </br>
       	            <input type="submit" />
 
-                    <br/><br/>
+                    <br/></br>
                     <!-- Choose number of comments to display -->
                     <label for="quantity">Choose how many comments to display:</label>
                     <select name="quantity" id="quantity" onchange="getComments()">
@@ -44,7 +51,8 @@
                         <option value="15">15</option>
                     </select>
                 </form>
-                </br></br>
+
+                <!-- <table id="comment-list"></table> -->
 
                 <ul id="comment-list"></ul>
 

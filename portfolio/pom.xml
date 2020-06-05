@@ -47,6 +47,7 @@
         <version>2.2.0</version>
         <configuration>
           <!-- TODO: set project ID. -->
+          <port>8081</port>
           <deploy.projectId>mihira-step-2020</deploy.projectId>
           <deploy.version>1</deploy.version>
         </configuration>

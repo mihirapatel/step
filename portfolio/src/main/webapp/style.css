@@ -370,12 +370,33 @@ favorites-text {
     left: 960px;
 }
 
+.name-textbox {
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
 .number-comments {
     display: inline;
 }
 
 .delete-button {
-    margin-top: 600px;
+    margin-top: 585px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 /* Charts */
