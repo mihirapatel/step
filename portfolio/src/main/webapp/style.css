@@ -378,6 +378,11 @@ favorites-text {
     margin-top: 600px;
 }
 
+/* Charts */
+.charts{
+    display: inline-block;
+}
+
 /* Main */
 
 	#main {

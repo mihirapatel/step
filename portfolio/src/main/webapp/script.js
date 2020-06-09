@@ -29,9 +29,14 @@ function getComments() {
 // Gets amount of comments to display
 function getQuantity() {
     var quantity = document.getElementById("quantity");
-    var value = quantity.options[quantity.selectedIndex].value
-    return value
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("quantity", quantity);
+    } else {
+        quantity = sessionStorage.getItem("quantity")
+    }
+    return quantity.options[quantity.selectedIndex].value
 }
+
 
 /** Creates an <li> element containing text. */
 function createListElement(comment) {
@@ -81,7 +86,6 @@ function createMap() {
     // Dolores Park
     const doloresParkInfoWindow =
         new google.maps.InfoWindow({content: 'This is a great hang-out spot.'});
-
     const doloresParkMarker = new google.maps.Marker({
     position: {lat: 37.760180, lng: -122.427123},
     map: map,
@@ -89,7 +93,7 @@ function createMap() {
     });
     doloresParkMarker.addListener('click', function() { doloresParkInfoWindow.open(map, doloresParkMarker);});
 
-    // Dolores Park
+    // Bi-Rite
     const biriteCreameryInfoWindow =
         new google.maps.InfoWindow({content: 'This is a great ice cream shop.'});
 
@@ -119,6 +123,51 @@ function createMap() {
     title: 'Baker Beach'
     });
     bakerBeachMarker.addListener('click', function() { bakerBeachInfoWindow.open(map, bakerBeachMarker);});
+}
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+    // Computer Sciences
+    const computerScienceData = new google.visualization.DataTable();
+    computerScienceData.addColumn('string', 'Gender');
+    computerScienceData.addColumn('number', 'Percentage');
+            computerScienceData.addRows([
+            ['Female', 19],
+            ['Male', 81],
+
+            ]);
+
+    const computerScienceOptions = {
+        'title': 'Female vs. Male Students in Computer Science Courses',
+        'width':500,
+        'height':400
+    };
+
+    const computerScienceChart = new google.visualization.PieChart(
+        document.getElementById('computer-chart-container'));
+    computerScienceChart.draw(computerScienceData, computerScienceOptions);
+
+    // Engineering and Technology 
+    const engineeringData = new google.visualization.DataTable();
+    engineeringData.addColumn('string', 'Gender');
+    engineeringData.addColumn('number', 'Percentage');
+            engineeringData.addRows([
+            ['Female', 19],
+            ['Male', 81],
+
+            ]);
+
+    const engineeringOptions = {
+        'title': 'Female vs. Male Students in Engineering and Technology Courses',
+        'width':500,
+        'height':400
+    };
+
+    const engineeringChart = new google.visualization.PieChart(
+        document.getElementById('engineering-chart-container'));
+    engineeringChart.draw(engineeringData, engineeringOptions);
 }
 
