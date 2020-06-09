@@ -108,7 +108,6 @@ function createMap() {
     // Dolores Park
     const doloresParkInfoWindow =
         new google.maps.InfoWindow({content: 'This is a great hang-out spot.'});
-
     const doloresParkMarker = new google.maps.Marker({
     position: {lat: 37.760180, lng: -122.427123},
     map: map,
@@ -116,7 +115,7 @@ function createMap() {
     });
     doloresParkMarker.addListener('click', function() { doloresParkInfoWindow.open(map, doloresParkMarker);});
 
-    // Dolores Park
+    // Bi-Rite
     const biriteCreameryInfoWindow =
         new google.maps.InfoWindow({content: 'This is a great ice cream shop.'});
 
