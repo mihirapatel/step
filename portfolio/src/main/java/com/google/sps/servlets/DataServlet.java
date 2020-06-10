@@ -39,8 +39,6 @@ public class DataServlet extends HttpServlet {
   // Create ArrayList
   private List<String> comments = new ArrayList<>();
 
-  private List<String> messages;
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get comment quantity
@@ -49,7 +47,7 @@ public class DataServlet extends HttpServlet {
  
     commentCount = Integer.parseInt(commentQuantity);
 
-	  Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
+	Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
@@ -60,10 +58,11 @@ public class DataServlet extends HttpServlet {
       }
 
       long id = entity.getKey().getId();
-      String userComment = (String) entity.getProperty("userComment");
+      String userName = (String) entity.getProperty("name-input");
+      String userComment = (String) entity.getProperty("text-input");
       long timestamp = (long) entity.getProperty("timestamp");
 
-      Comment comment = new Comment(id, userComment, timestamp);
+      Comment comment = new Comment(id, userName, userComment, timestamp);
       comments.add(comment);
       commentCount -= 1;
     }
@@ -78,12 +77,15 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
-    String userComment = request.getParameter("text-input");
-    long timestamp = System.currentTimeMillis();
-    comments.add(userComment);
-
+    
     Entity commentEntity = new Entity("Comment");
-    commentEntity.setProperty("userComment", userComment);
+
+    String userName = request.getParameter("name-input");
+    String userComment = request.getParameter("text-input");
+    long timestamp = System.currentTimeMillis();   
+
+    commentEntity.setProperty("name-input", userName);
+    commentEntity.setProperty("text-input", userComment);
     commentEntity.setProperty("timestamp", timestamp);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();

@@ -38,7 +38,8 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>2.2.0</version>
         <configuration>
-          <deploy.projectId>YOUR_PROJECT_ID_HERE</deploy.projectId>
+          <port>8081</port>
+          <deploy.projectId>mihira-step-2020</deploy.projectId>
           <deploy.version>1</deploy.version>
         </configuration>
       </plugin>

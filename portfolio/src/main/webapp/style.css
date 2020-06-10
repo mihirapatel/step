@@ -363,11 +363,9 @@ favorites-text {
 }
 
 /* Comments */
-#comment-list {
-    list-style-type: none;
-    text-align: center;
-    position: absolute;
-    left: 960px;
+.name-textbox {
+    margin-left: 25px;
+    margin-bottom: 10px;
 }
 
 .number-comments {
@@ -375,7 +373,27 @@ favorites-text {
 }
 
 .delete-button {
-    margin-top: 600px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 605px;
+    padding: 2px;
+    position: fixed;
+}
+
+table {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 550px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 3px;
 }
 
 /* Charts */

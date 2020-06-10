@@ -18,10 +18,14 @@ function getComments() {
 
     fetch('/comments?quantity='+ quantity).then(response => response.json()).then((comments) => {
         // Build the list of history entries.
-        const commentElement = document.getElementById('comment-list');
+        const commentElement = document.getElementById('comment-table');
         commentElement.innerHTML = '';
+
+        //Create table headings
+        commentElement.appendChild(createTableHeading())
+        //Create table entries
         for (var i=0; i < comments.length; i++) {
-            commentElement.appendChild(createListElement(comments[i]));
+            commentElement.appendChild(createTableElement(comments[i]));
         }
     });
 }
@@ -37,12 +41,30 @@ function getQuantity() {
     return quantity.options[quantity.selectedIndex].value
 }
 
+/** Creates an <tr> element for table heading. */
+function createTableHeading() {
+    const rowElement = document.createElement('tr');
+    const headerElement = document.createElement('th');
+    const dataElement = document.createElement('th');
+  
+    headerElement.innerText = "Name";
+    dataElement.innerText = "Comment";
 
-/** Creates an <li> element containing text. */
-function createListElement(comment) {
-    const commentElement = document.createElement('li');
-    commentElement.innerText = comment.userComment;
-    return commentElement;
+    rowElement.innerHTML = headerElement.outerHTML + dataElement.outerHTML;
+    return rowElement;
+}
+
+/** Creates an <tr> element containing text. */
+function createTableElement(comment) {
+    const rowElement = document.createElement('tr');
+    const headerElement = document.createElement('td');
+    const dataElement = document.createElement('td');
+  
+    headerElement.innerText = comment.userName;
+    dataElement.innerText = comment.userComment;
+
+    rowElement.innerHTML = headerElement.outerHTML + dataElement.outerHTML;
+    return rowElement;
 }
 
 // Deletes all comments 
