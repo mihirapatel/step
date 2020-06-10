@@ -49,7 +49,7 @@ public final class FindMeetingQuery {
     public Collection<TimeRange> helper(Collection<Event> events, MeetingRequest request) {
         
         List<TimeRange> query = new ArrayList<>();
-        int size = events.size();
+        int num_events = events.size();
         int next_available_start = TimeRange.START_OF_DAY;
         int desired_duration = (int)request.getDuration();
         int counter = 0;
@@ -65,7 +65,7 @@ public final class FindMeetingQuery {
         }
         
         // Check if there are any events happening at all
-        if (size == 0) { 
+        if (num_events == 0) { 
             query.add(TimeRange.WHOLE_DAY);
             return query;
         }
@@ -78,7 +78,7 @@ public final class FindMeetingQuery {
                 if (request_attendees.contains(a)) {
                     ignore_event = false;
                     break;
-                } else if (counter == size-1) {
+                } else if (counter == num_events-1) {
                     query.add(TimeRange.fromStartEnd(next_available_start, TimeRange.END_OF_DAY, true));
                 }
             }
@@ -107,7 +107,7 @@ public final class FindMeetingQuery {
                 }
 
                 // Last event of the day
-                if (counter == size-1) {
+                if (counter == num_events-1) {
                     if (next_available_start != TimeRange.END_OF_DAY+1) {
                         query.add(TimeRange.fromStartEnd(next_available_start, TimeRange.END_OF_DAY, true));
                     }
